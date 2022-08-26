@@ -6,6 +6,38 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+    }
+    .box {
+        display: flex;
+        width: 700px;
+        height: 300px;
+        border-left: 1px solid pink;
+        border-bottom: 1px solid pink;
+        margin: 50px auto;
+        justify-content: space-around;
+        align-items: flex-end;
+        text-align: center;
+    }
+    .box>div {
+        display: flex;
+        width: 50px;
+        background-color: pink;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+    .box div span {
+        margin-top: -20px;
+    }
+    .box div h4 {
+        margin-bottom: -35px;
+        width: 70px;
+        margin-left: -10px;
+    }
+</style>
 <body>
     
     <script>
@@ -17,9 +49,18 @@
         for (let i = 1; i <= 4; i++) {
             ary.push(prompt(`请输入第${i}季度的数据`))
         } 
-        
+        document.write(`<div class='box'>`);
         //根据数组中的数据在页面中显示对应的标签
-        
+        for (let i = 0; i < ary.length; i++) {
+            document.write(`
+                <div style=height:${ary[i]}px> 
+                    <span>${ary[i]}</span>
+                    <h4>第${i+1}季度</h4>
+                </div>
+            `)
+        }
+        document.write(`</div>`);
+
     </script>
 </body>
 </html>
